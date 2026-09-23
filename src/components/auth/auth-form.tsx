@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from '@/lib/next-router'
 import { Loader2 } from 'lucide-react'
-import darkLogo from '@/assets/superintelligens-logo.png'
+import darkLogo from '@/assets/superintelligens-icon.png'
 import Link from '@/components/link'
 
 export function AuthForm() {
