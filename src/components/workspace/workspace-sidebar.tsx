@@ -108,6 +108,7 @@ export function WorkspaceSidebar({
   onNew: () => void
   onDelete: (id: string) => void
   spec: DesignSpec
+  width?: number
 }) {
   const [query, setQuery] = useState('')
   const filtered = sessions.filter((s) =>
@@ -116,7 +117,7 @@ export function WorkspaceSidebar({
 
   return (
     <motion.aside
-      animate={{ width: collapsed ? 64 : 264 }}
+      animate={{ width: collapsed ? 64 : (width ?? 264) }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className="relative z-20 flex shrink-0 flex-col bg-sidebar"
     >

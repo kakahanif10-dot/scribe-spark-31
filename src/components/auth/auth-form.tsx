@@ -32,7 +32,7 @@ export function AuthForm() {
         </svg>
       </Link>
 
-      <img src={darkLogo} alt="SUPERINTELLIGENS" className="h-9 w-9 object-contain" />
+      <img src={darkLogo} alt="SUPERINTELLIGENS" className="h-9 w-9 object-contain invert" />
 
       <p className="mt-7 text-xl font-medium text-muted-foreground">Start building.</p>
       <h1 className="mt-1 text-xl font-semibold tracking-tight text-foreground">
