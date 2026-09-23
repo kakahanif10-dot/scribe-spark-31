@@ -94,6 +94,8 @@ function WorkspacePage() {
   const [error, setError] = useState<string | null>(null)
 
   const [collapsed, setCollapsed] = useState(false)
+  const [sidebarWidth, setSidebarWidth] = useState(264)
+  const [chatWidth, setChatWidth] = useState(420)
   const [tab, setTab] = useState<SidebarTab>('chats')
   const [sessions, setSessions] = useState<Session[]>([])
   const [activeId, setActiveId] = useState<string | null>(null)
