@@ -20,7 +20,6 @@ import {
   LayoutGrid,
   Zap,
 } from 'lucide-react'
-import { SuperintelligensMark } from '@/components/superintelligens-logo'
 import { cn } from '@/lib/utils'
 import type { DesignSpec, Template } from '@/lib/design'
 import { Button } from '@/components/ui/button'
@@ -125,7 +124,6 @@ export function WorkspaceSidebar({
       {/* Brand + collapse */}
       <div className="flex h-14 items-center justify-between px-3">
         <div className="flex items-center gap-2 overflow-hidden">
-          <SuperintelligensMark className="h-8 w-8 shrink-0" />
           <AnimatePresence>
             {!collapsed && (
               <motion.span

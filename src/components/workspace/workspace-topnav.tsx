@@ -2,7 +2,6 @@
 import { motion } from 'framer-motion'
 import { ChevronDown, Rocket, Share2, Loader2, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { SuperintelligensMark } from '@/components/superintelligens-logo'
 
 export function WorkspaceTopnav({
   projectName,
@@ -16,7 +15,6 @@ export function WorkspaceTopnav({
   return (
     <header className="flex h-14 shrink-0 items-center justify-between bg-background px-4">
       <div className="flex items-center gap-2 text-sm">
-        <SuperintelligensMark className="h-6 w-6" />
         <Button variant="ghost" className="h-8 gap-1.5 px-2">
           <span className="font-medium">{projectName}</span>
           <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
