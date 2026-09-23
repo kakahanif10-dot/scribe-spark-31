@@ -29,6 +29,7 @@ import {
   type SidebarTab,
 } from '@/components/workspace/workspace-sidebar'
 import { WorkspaceTopnav } from '@/components/workspace/workspace-topnav'
+import { ResizeHandle } from '@/components/workspace/resize-handle'
 import { DEFAULT_SPEC, type DesignSpec } from '@/lib/design'
 import {
   COMPILE_DURATION_MS,
