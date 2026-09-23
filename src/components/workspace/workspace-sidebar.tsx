@@ -97,6 +97,7 @@ export function WorkspaceSidebar({
   onNew,
   onDelete,
   spec,
+  width,
 }: {
   collapsed: boolean
   onToggle: () => void
