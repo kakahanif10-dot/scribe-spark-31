@@ -20,7 +20,6 @@ import {
   LayoutGrid,
   Zap,
 } from 'lucide-react'
-import { SuperintelligensMark } from '@/components/superintelligens-logo'
 import { cn } from '@/lib/utils'
 import type { DesignSpec, Template } from '@/lib/design'
 import { Button } from '@/components/ui/button'

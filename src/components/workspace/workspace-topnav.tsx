@@ -2,7 +2,6 @@
 import { motion } from 'framer-motion'
 import { ChevronDown, Rocket, Share2, Loader2, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { SuperintelligensMark } from '@/components/superintelligens-logo'
 
 export function WorkspaceTopnav({
   projectName,
