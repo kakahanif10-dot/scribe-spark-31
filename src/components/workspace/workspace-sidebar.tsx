@@ -125,7 +125,6 @@ export function WorkspaceSidebar({
       {/* Brand + collapse */}
       <div className="flex h-14 items-center justify-between px-3">
         <div className="flex items-center gap-2 overflow-hidden">
-          <SuperintelligensMark className="h-8 w-8 shrink-0" />
           <AnimatePresence>
             {!collapsed && (
               <motion.span
