@@ -409,8 +409,12 @@ function WorkspacePage() {
           className={chatExpanded ? 'flex min-h-0 flex-1 flex-col' : 'flex min-h-0 flex-1 flex-col lg:flex-row'}
         >
           <div
-            className="min-h-0 min-w-0 flex-1 lg:flex-none"
-            style={chatExpanded ? undefined : { width: `${chatWidth}px` }}
+            className={
+              chatExpanded
+                ? 'min-h-0 min-w-0 flex-1'
+                : 'min-h-0 min-w-0 flex-1 lg:w-[var(--chat-w)] lg:flex-none'
+            }
+            style={{ ['--chat-w' as string]: `${chatWidth}px` } as React.CSSProperties}
           >
             <ConsultantPanel
               prompt={prompt}
