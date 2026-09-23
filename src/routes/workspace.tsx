@@ -389,7 +389,10 @@ function WorkspacePage() {
         onNew={newProject}
         onDelete={deleteSession}
         spec={spec}
+        width={sidebarWidth}
       />}
+
+      {!collapsed && <ResizeHandle onResize={setSidebarWidth} min={200} max={480} />}
 
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
         {<WorkspaceTopnav
