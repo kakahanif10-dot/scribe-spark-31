@@ -405,8 +405,13 @@ function WorkspacePage() {
         />}
 
         {/* Three-pane console: consultant · preview · modifier drawer */}
-        <div className={chatExpanded ? 'grid min-h-0 flex-1 grid-cols-1' : 'grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[minmax(360px,460px)_1fr_auto]'}>
-          <div className="min-h-0">
+        <div
+          className={chatExpanded ? 'flex min-h-0 flex-1 flex-col' : 'flex min-h-0 flex-1 flex-col lg:flex-row'}
+        >
+          <div
+            className="min-h-0 min-w-0 flex-1 lg:flex-none"
+            style={chatExpanded ? undefined : { width: `${chatWidth}px` }}
+          >
             <ConsultantPanel
               prompt={prompt}
               onPromptChange={setPrompt}
