@@ -432,7 +432,9 @@ function WorkspacePage() {
             />
           </div>
 
-          {!chatExpanded && <div className="hidden min-h-0 lg:block">
+          {!chatExpanded && <ResizeHandle onResize={setChatWidth} min={320} max={900} />}
+
+          {!chatExpanded && <div className="hidden min-h-0 min-w-0 flex-1 lg:block">
             <ResponsivePreview
               spec={spec}
               building={generating || hydrating}
