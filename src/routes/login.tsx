@@ -19,59 +19,26 @@ export const Route = createFileRoute('/login')({
   component: LoginPage,
 })
 
-import Link from '@/components/link'
-import { ArrowLeft } from 'lucide-react'
-import { SuperintelligensLogo } from '@/components/superintelligens-logo'
 import { AuthForm } from '@/components/auth/auth-form'
+import { SiteHeader } from '@/components/landing/site-header'
+import { Hero } from '@/components/landing/hero'
 
 function LoginPage() {
   return (
-    <main className="login-light login-gradient relative flex min-h-screen overflow-hidden">
-      {/* Left brand panel */}
-      <div className="login-gradient relative hidden w-1/2 flex-col justify-between overflow-hidden p-10 lg:flex">
-        <Link href="/" className="relative">
-          <SuperintelligensLogo />
-        </Link>
-
-        <div className="relative max-w-md">
-          <blockquote className="text-2xl font-medium leading-snug tracking-tight text-balance">
-            &ldquo;I described the app in a sentence and had a working, deployed
-            product before my coffee got cold.&rdquo;
-          </blockquote>
-          <div className="mt-6 flex items-center gap-3">
-            <span className="brand-gradient-bg flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold text-primary-foreground">AC</span>
-            <div>
-              <p className="text-sm font-medium">Ava Chen</p>
-              <p className="text-sm text-muted-foreground">
-                Founder, Northlight Labs
-              </p>
-            </div>
-          </div>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* The landing page stays visible behind the sign-in dialog */}
+      <main className="landing-page pointer-events-none min-h-screen bg-background" aria-hidden>
+        <div className="hero-pastel">
+          <SiteHeader />
+          <Hero />
         </div>
+      </main>
 
-        <div className="relative flex items-center gap-6 text-sm text-muted-foreground">
-          <span>Trusted by 200k+ builders</span>
-          <span className="h-1 w-1 rounded-full bg-muted-foreground/50" />
-          <span>SOC 2 compliant</span>
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/45 px-6 py-12 backdrop-blur-[2px]">
+        <div className="login-light w-full max-w-[420px]">
+          <AuthForm />
         </div>
       </div>
-
-      {/* Right form panel */}
-      <div className="relative flex w-full flex-col items-center justify-center px-6 lg:w-1/2">
-        <Link
-          href="/"
-          className="absolute left-6 top-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back
-        </Link>
-
-        <div className="mb-8 lg:hidden">
-          <SuperintelligensLogo />
-        </div>
-
-        <AuthForm />
-      </div>
-    </main>
+    </div>
   )
 }

@@ -11,3 +11,8 @@
 - [x] Remove remaining dashboard and logo-column borders
 - [x] Apply #202020 dark grey across the workspace
 - [x] Make workspace scrollbars smaller and seamless
+- [ ] Match login page to white centered modal
+- [ ] Add drag-to-resize between workspace panels (sidebar/chat/preview)
+
+- [x] Login as white modal over the landing page (dimmed backdrop)
+- [x] Drag-to-resize: sidebar/chat and chat/preview

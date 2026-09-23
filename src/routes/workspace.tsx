@@ -29,6 +29,7 @@ import {
   type SidebarTab,
 } from '@/components/workspace/workspace-sidebar'
 import { WorkspaceTopnav } from '@/components/workspace/workspace-topnav'
+import { ResizeHandle } from '@/components/workspace/resize-handle'
 import { DEFAULT_SPEC, type DesignSpec } from '@/lib/design'
 import {
   COMPILE_DURATION_MS,
@@ -93,6 +94,8 @@ function WorkspacePage() {
   const [error, setError] = useState<string | null>(null)
 
   const [collapsed, setCollapsed] = useState(false)
+  const [sidebarWidth, setSidebarWidth] = useState(264)
+  const [chatWidth, setChatWidth] = useState(420)
   const [tab, setTab] = useState<SidebarTab>('chats')
   const [sessions, setSessions] = useState<Session[]>([])
   const [activeId, setActiveId] = useState<string | null>(null)
@@ -389,7 +392,10 @@ function WorkspacePage() {
         onNew={newProject}
         onDelete={deleteSession}
         spec={spec}
+        width={sidebarWidth}
       />}
+
+      {!collapsed && <ResizeHandle onResize={setSidebarWidth} min={200} max={480} />}
 
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
         {<WorkspaceTopnav
@@ -399,8 +405,17 @@ function WorkspacePage() {
         />}
 
         {/* Three-pane console: consultant · preview · modifier drawer */}
-        <div className={chatExpanded ? 'grid min-h-0 flex-1 grid-cols-1' : 'grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[minmax(360px,460px)_1fr_auto]'}>
-          <div className="min-h-0">
+        <div
+          className={chatExpanded ? 'flex min-h-0 flex-1 flex-col' : 'flex min-h-0 flex-1 flex-col lg:flex-row'}
+        >
+          <div
+            className={
+              chatExpanded
+                ? 'min-h-0 min-w-0 flex-1'
+                : 'min-h-0 min-w-0 flex-1 lg:w-[var(--chat-w)] lg:flex-none'
+            }
+            style={{ ['--chat-w' as string]: `${chatWidth}px` } as React.CSSProperties}
+          >
             <ConsultantPanel
               prompt={prompt}
               onPromptChange={setPrompt}
@@ -417,7 +432,9 @@ function WorkspacePage() {
             />
           </div>
 
-          {!chatExpanded && <div className="hidden min-h-0 lg:block">
+          {!chatExpanded && <ResizeHandle onResize={setChatWidth} min={320} max={900} />}
+
+          {!chatExpanded && <div className="hidden min-h-0 min-w-0 flex-1 lg:block">
             <ResponsivePreview
               spec={spec}
               building={generating || hydrating}
